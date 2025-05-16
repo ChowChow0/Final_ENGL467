@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guess</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Restart</a></li>
+                    <li><a href="makerStmt.html">Maker's Statement</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="romance">
+        <main id="main">
+            <p></p>
+
+            <input type="number" id="userGuess">
+
+            <div class="btn" style="padding: 5px;"><button id="guessButton">Guess</button></div>
+
+            <p id="result"></p>
+        </main>
+        <br>
+        <a href="pageTwo.html" class="begin-btn">End Game</a>
+    </section>
+
+    <script>
+        const btn = document.getElementById('guessButton');
+        const guess = document.getElementById('userGuess');
+        const output = document.getElementById('result');
+        const main = document.getElementById('main');
+        const para = main.querySelector('p');
+        const btn2 = document.createElement('button');
+        main.prepend(btn2);
+        btn2.textContent = 'Click to Start';
+        let answer = 0;
+        
+        btn2.addEventListener('click', startGame);
+        btn.style.display = 'none';
+
+        guess.style.display = 'none';
+
+        function startGame() {
+            btn.style.display = 'block';
+            btn2.style.display = 'none'
+            guess.style.display = 'block';
+            para.textContent = 'Guess a Number 1-100';
+            answer = Math.floor(Math.random() * 100) + 1;
+            output.textContent = '';
+        }
+
+        function endGame() {
+            para.textContent = 'Hit the Start Button to Start';
+            btn.style.display = 'none';
+            btn2.style.display = 'block';
+            guess.style.display = 'none';
+        }
+
+        btn.addEventListener('click', () => {
+            const userGuess = parseInt(guess.value);
+            guess.value = '';
+
+            if (userGuess === answer) {
+                output.textContent = 'Congrats you are correct. Play Again?';
+                endGame();
+            } else {
+                const result = userGuess < answer ? 'Higher' : 'Lower';
+                output.textContent = `Guess Again! ${result}`;
+            }
+        });
+    </script>
+
+</body>
+</html>

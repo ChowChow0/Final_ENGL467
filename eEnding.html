@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>eEnding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Restart</a></li>
+                    <li><a href="makerStmt.html">Maker's Statement</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="romance">
+        <p>
+            You don’t stay long in the village after the healing. A day, maybe two. Long enough 
+            to help Elara tend to those still recovering. Long enough to watch the weight begin to 
+            lift from their eyes.
+            But not long enough to feel like you belong here.
+            The air shifts.
+            A ripple, like a page turning.
+            You step back instinctively, and suddenly the world around you begins to dissolve: 
+            the moss beneath your feet, the shimmer of fireflies in the air, the image of the village 
+            fading into shadow.
+            <br><br>
+            You wake in the library.
+            No sound. No footsteps. Just the rustle of unseen pages.
+            You’re back in the room, the book closed in front of you. Your fingers still rest on the cover.
+            Someone clears their throat behind you.
+            <br><br>
+            You turn.
+            <br><br>
+            The narrator stands there—no longer hidden in the margins, but whole. 
+            They tilt their head at you, half curious, half amused.
+        </p>
+        <button class="begin-btn" id="talkBtn">Talk to Narrator</button>
+        <br>
+        <audio id="myAudioE">
+            <source src="audio\end.m4a" type="audio/mpeg">
+        </audio>
+        
+        <script>
+            const audio = document.getElementById('myAudioE');
+            const btn = document.getElementById('talkBtn');
+            let hasStarted = false;
+
+            btn.addEventListener('click', () => {
+                if (!hasStarted) {
+                audio.play();
+                btn.textContent = 'Pause';
+                hasStarted = true;
+                } else if (!audio.paused) {
+                audio.pause();
+                btn.textContent = 'Continue Talking with the Narrator';
+                } else {
+                audio.play();
+                btn.textContent = 'Pause';
+                }
+            });
+        </script>
+        <button id="nextBtn" class="styled-btn hidden">Secret Ending</button>
+        <p>
+            The narrator watches you a moment longer, then smiles—not with approval or warning, 
+            but with the kind of wonder reserved for stories that grow beyond their endings.
+            Then they’re gone—slipped between the shelves like a shadow between words.
+            You look down.
+            The book is still in your hands.
+            Its cover is worn, the edges singed faintly with gold, like the last trace of magic 
+            refusing to fade. You tuck it beneath your arm—carefully, reverently. Not because you 
+            plan to read it again, but because you lived it. And somehow, that feels different.
+        </p>
+        <a href="eLeave.html" class="begin-btn">Leave</a>
+    </section>
+    <script>
+        document.getElementById("talkBtn").onclick = function() {
+            document.getElementById("nextBtn").classList.remove("hidden");
+        };
+
+        document.getElementById("nextBtn").onclick = function() {
+            window.location.href = "secretEnding.html";
+        };
+    </script>
+</body>
+</html>

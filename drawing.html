@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guess</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Restart</a></li>
+                    <li><a href="makerStmt.html">Maker's Statement</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="drawingSec">
+        <canvas id="myCanvas" width="600" height="400"></canvas>
+        <br>
+        <label for="penSize">Pen Size:</label>
+        <input type="range" id="penSize" min="1" max="20" value="2">
+        <br>
+        <button id="clearBtn" class="begin-btn">Clear Canvas</button>
+
+        <br>
+        <a href="pageTwo.html" class="begin-btn">End Game</a>
+
+    </section>
+
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+
+        const penSize = document.getElementById("penSize");
+        const clearBtn = document.getElementById("clearBtn");
+
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = penSize.value;
+        ctx.lineCap = "round";
+
+        clearBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        canvas.addEventListener("mousedown", () => {
+            drawing = true;
+            ctx.beginPath();
+        });
+
+        canvas.addEventListener("mouseup", () => {
+            drawing = false;
+        });
+
+        canvas.addEventListener("mousemove", (e) => {
+            if (!drawing) return;
+            const x = e.offsetX;
+            const y = e.offsetY;
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        });
+
+        penSize.addEventListener("input", () => {
+            ctx.lineWidth = penSize.value;
+        });
+    </script>
+
+</body>
+</html>

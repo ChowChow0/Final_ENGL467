@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Final Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Restart</a></li>
+                    <li><a href="makerStmt.html">Maker's Statement</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-box">
+            <h1>The Living Library</h1>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+    <!-- story -->
+    <section class="story">
+        <p class="reveal-type"> 
+            You wake up in a dark, dimly lit library, the soft glow of a few remaining lamps casting long 
+            shadows over the rows of bookshelves. It's quiet, too quiet, and for a moment, you wonder how 
+            long you've been asleep. The musty scent of old paper fills your nose, and you rub your eyes, 
+            realizing that it must be long after closing time.
+            <br>
+            You stretch, feeling the weight of tiredness still clinging to you, but reading no longer holds 
+            your interest. You stand, deciding to walk around and stretch your legs. The library feels vast 
+            in the silence, the towering shelves of books almost pressing in on you as you meander down aisles 
+            without any real purpose.
+            <br>
+            But then, you hear it. A soft whisper, barely perceptible, as if the very books themselves are 
+            speaking. You freeze. Was someone else still here? The sound is faint, and yet, it's oddly magnetic, 
+            pulling you forward, urging you to follow. Before you even realize it, you're walking down the aisles, 
+            each step bringing you deeper into the maze of shelves. The whispers grow louder, but there’s no one 
+            in sight, no sign of where it’s coming from. 
+            <br>
+            You feel strangely entranced, as though the library itself is guiding you. It’s easy to forget about 
+            the outside world, to lose track of time and space as you follow the sound, winding your way deeper 
+            through the labyrinth of bookshelves. But then it hits you—you’re lost. Completely and utterly lost. 
+            <br>
+            The whispers have stopped, and you're standing in an unfamiliar aisle, unsure of how you even got here. 
+            Panic sets in as you turn in every direction, trying to find your bearings. There’s nothing familiar, 
+            just endless rows of books, stretching in all directions.
+            <br>
+            You continue to wander, heart racing. Then, as if by fate, you stumble upon a door. You don't hesitate, 
+            stepping inside, hoping it will lead you to an exit. The door shuts behind you with an echo that 
+            reverberates in your chest. 
+            <br>
+            You try to open it again, but it won’t budge. The door is locked.
+            <br>
+            Turning around, you find yourself in a large, circular room, the walls lined with bookshelves. 
+            In the center, four stands hold four books, each with a different cover. The books seem to call out to you, 
+            each one promising something different, something more.
+        </p>
+        <div class = "row">
+            <div class="pic-col">
+                <h3 class="reveal-type">First Book</h3>
+                <button onclick="bookAlert()">
+                    <img src="photos\ChatGPT Image May 5, 2025, 08_21_10 PM.png" class="book"/>
+                </button>
+                <p class="reveal-type">
+                    You step closer to the first stand. The book resting there is a romance, its cover a soft, faded red. 
+                    Two figures are caught in a tender embrace, but their faces are hazy, blurred beyond recognition. 
+                    No matter how long you stare, their identities remain just out of reach, as if the story refuses to 
+                    reveal them until the pages are turned.
+                </p>
+            </div>
+            <div class="pic-col">
+                <h3 class="reveal-type">Second Book</h3>
+                <button onclick="bookAlertNone()">
+                    <img src="photos/ChatGPT Image Apr 28, 2025, 02_38_01 PM.png" class="book"/>
+                </button>
+                <p class="reveal-type">
+                    The second stand holds a fantasy novel. Its cover gleams with shimmering silver and gold, depicting a 
+                    majestic castle rising above enchanted forests. Yet at the very center of the image, there is a curious 
+                    empty space—a hollow gap where something important should be, as if a vital piece of the world was quietly erased.
+                </p>
+            </div>
+            <div class="pic-col">
+                <h3 class="reveal-type">Third Book</h3>
+                <button onclick="bookAlertNone()">
+                    <img src="photos/ChatGPT Image Apr 28, 2025, 02_38_01 PM.png" class="book"/>
+                </button>
+                <p class="reveal-type">
+                    The third stand displays a mystery. The cover is drenched in darkness, broken only by the harsh glow of 
+                    a lone, flickering street lamp. Beneath it, a solitary silhouette stands motionless, casting a long shadow 
+                    across the pavement. The scene feels less like an invitation and more like a warning.
+                </p>
+            </div>
+            <div class="pic-col">
+                <h3 class="reveal-type">Fourth Book</h3>
+                <button onclick="bookAlertNone()">
+                    <img src="photos/ChatGPT Image Apr 28, 2025, 02_38_01 PM.png" class="book"/>
+                </button>
+                <p class="reveal-type">
+                    The fourth book, perched on the final stand, is a thriller. Its cover is stark and chilling, dominated by 
+                    the image of a distant figure lurking just out of focus. The longer you look, the more you feel the weight 
+                    of unseen eyes upon you. A ripple of unease crawls down your spine, the tension practically seeping from the page.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js" integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+        const splitTypes = document.querySelectorAll('.reveal-type')
+
+        splitTypes.forEach((char,i) => {
+            const text = new SplitType(char, { types: 'chars, words'})
+            gsap.from(text.chars, {
+                scrollTrigger: {
+                    trigger: char,
+                    start: 'top 80%',
+                    end: 'top: 20%',
+                    scrub: false,
+                    markers: false
+                },
+                opacity: 0,
+                stagger: 0.007 
+            })
+        })
+
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+            console.log(e)
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+        function bookAlert() {
+            if (confirm("Are you sure?")) {
+                alert("Alright then, if you've made up your mind....");
+                window.location.href = "pageTwo.html";
+            } else {
+                window.location.href = "fastEnding.html";
+            }
+        }
+
+        function bookAlertNone() {
+            if (confirm("Are you sure?")) {
+                if (confirm("Are you REALLY sure?")) {
+                    alert("Too Bad");
+                }
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

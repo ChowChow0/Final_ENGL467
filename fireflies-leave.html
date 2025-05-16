@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fireflies (Elara)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Restart</a></li>
+                    <li><a href="makerStmt.html">Maker's Statement</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="romance">
+        <a href="wordReverie.html" class="begin-btn" id="finish">Finished</a>
+    </section>
+    <div class="light"></div>
+    <div id="container"></div>
+
+
+    <script>
+        document.getElementById('finish').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const userInput = prompt("Tell me the letters you found with no spaces or anything else in between:");
+            if (userInput === null) {
+                return;
+            }
+            const input = userInput.toUpperCase();
+            const requiredLetters = { R: 2, E: 3, V: 1, I: 1 };
+            const letterCounts = {};
+            for (let char of input) {
+                if (requiredLetters[char]) {
+                    letterCounts[char] = (letterCounts[char] || 0) + 1;
+                }
+            }
+
+            const allFound = Object.entries(requiredLetters).every(([letter, count]) => {
+                return (letterCounts[letter] || 0) >= count;
+            });
+
+            if (allFound) {
+                window.location.href = this.href;
+            } else {
+                alert("Make sure you found every thing...")
+            }
+        });
+        
+        const words = ['R', 'E', 'V', 'E', 'R', 'I', 'E'];
+        const cont = document.querySelector('section.romance'); 
+        const wordCount = 7; 
+
+        for (let i = 0; i < wordCount; i++) {
+            const word = document.createElement('p');
+            word.classList.add('hidden-word');
+            word.textContent = words[i];
+
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+
+            word.style.top = randomY + 'px';
+            word.style.left = randomX + 'px';
+
+            cont.appendChild(word);
+        }
+        document.addEventListener('mousemove', (e) => {
+            const cursorX = e.clientX;
+            const cursorY = e.clientY;
+
+            document.querySelectorAll('.hidden-word').forEach(word => {
+                const rect = word.getBoundingClientRect();
+                const wordX = rect.left + rect.width / 2;
+                const wordY = rect.top + rect.height / 2;
+
+                const dx = cursorX - wordX;
+                const dy = cursorY - wordY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                const threshold = 120;
+
+                if (distance < threshold) {
+                    word.style.opacity = 1;
+                } else {
+                    word.style.opacity = 0;
+                }
+            });
+        });
+
+        document.documentElement.addEventListener('mousemove', (e) => {
+            document.documentElement.style.setProperty('--x', e.clientX + 'px');
+            document.documentElement.style.setProperty('--y', e.clientY + 'px');
+        });
+
+        const total = 40;
+        const container = document.getElementById('container');
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        const Tweens = [];
+
+        function R(max) {
+            return Math.random() * max;
+        }
+
+        function Anim(elm) {
+            elm.Tween = gsap.to(elm, {
+                duration: R(20) + 10,
+                x: R(w),
+                y: R(h),
+                opacity: R(1),
+                scale: R(1) + 0.5,
+                delay: R(2),
+                onComplete: () => Anim(elm)
+            });
+        }
+
+        for (let i = 0; i < total; i++) {
+            const Div = document.createElement('div');
+            Div.classList.add('dot');
+            gsap.set(Div, { x: R(w), y: R(h), opacity: 0 });
+            container.appendChild(Div);
+            Anim(Div);
+            Tweens.push(Div);
+        }
+
+        window.addEventListener("resize", () => {
+            w = window.innerWidth;
+            h = window.innerHeight;
+
+            for (let i = 0; i < total; i++) {
+                gsap.killTweensOf(Tweens[i]);
+                Anim(Tweens[i]);
+            }
+        });
+    </script>
+</body>
+</html>

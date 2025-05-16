@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Final Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Restart</a></li>
+                    <li><a href="makerStmt.html">Maker's Statement</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="romance">
+        <h3 class="fade-text">You open your eyes.</h3>
+        <p>
+            You find yourself in a forest, surrounded by towering trees. 
+            It's midday—the sun hangs high in the sky, but the air is cool, thanks to a gentle 
+            breeze weaving through the branches. The leafy canopy filters the light, casting  
+            shadows across the forest floor.
+
+            What was that? A message… but from who?
+            You strain to recall. The last thing you remember is touching the book—and then, 
+            a voice. Distant. Speaking directly to you…
+        </p>
+        <button id="audioToggleBtn" class="begin-btn">Talk with the Narrator</button>
+        <audio id="myAudio">
+            <source src="audio\begin.m4a" type="audio/mpeg">
+        </audio>
+        <script>
+            const audio = document.getElementById('myAudio');
+            const btn = document.getElementById('audioToggleBtn');
+            let hasStarted = false;
+
+            btn.addEventListener('click', () => {
+                if (!hasStarted) {
+                audio.play();
+                btn.textContent = 'Pause';
+                hasStarted = true;
+                } else if (!audio.paused) {
+                audio.pause();
+                btn.textContent = 'Continue Talking with the Narrator';
+                } else {
+                audio.play();
+                btn.textContent = 'Pause';
+                }
+            });
+        </script>
+        <p>
+            As you contemplate what to do next, you hear a thump and the book that you first opened is 
+            now lying next to you on the floor.
+        </p>
+        <ul class="accordian">
+            <li>
+                <input type="checkbox" name="accordian" id="first">
+                <label for="first">Read the Novel</label>
+                <div class="content">
+                    <p>
+                        In the village, it was said that the forest woke up in summer. The trees whispered 
+                        louder, the birds sang more vibrantly, and strange lights moved between the trunks 
+                        at dusk. Most villagers stayed away from the woods once the flowers bloomed, heeding 
+                        old tales about spirits who watched from between the mossy trees.
+                        <br>
+                        But <a href="Elara.html" class="altStory">Elara</a> had never been afraid of the forest. She was eighteen when she first wandered 
+                        too far from the path and found herself in a clearing she'd never seen before. A soft 
+                        mist clung to the grass, and in the center stood a willow tree with branches that 
+                        swept the earth like a curtain of green silk. Beneath it stood a figure. He was clothed 
+                        in layers of ivy and shadow, with hair like dark bark and eyes like mossy stone. He 
+                        watched her not with surprise, but with quiet attention. He did not speak, only 
+                        inclined his head.
+                        <br>
+                        That summer, they began to meet in the glade. She spoke often. He always listened and 
+                        never said a word. At first, she thought he was shy. But eventually, she asked him 
+                        directly, fingers brushing his, voice barely louder than a hush:  “Why don’t you speak?” 
+                        He didn’t answer with words, only touched his throat and then laid a hand over his heart. 
+                        The look in his eyes said enough. He couldn’t. Not wouldn’t. Couldn’t.
+                        <br>
+                        As the seasons passed, Elara learned the truth in pieces. From old stories half-buried 
+                        in the village's memory. From the way birds would fall silent when he passed, or how 
+                        flowers leaned toward him. A forest spirit, a keeper of balance, born of root and wind. 
+                        Bound to silence by ancient law, for a voice like his could stir the sky or awaken rivers.
+                        <br>
+                        He could move wind with a flick of his hand and coax flowers to bloom from dry stone. 
+                        But if he spoke, it was said, the forest would take him back. So he remained silent. 
+                        And still, she loved him. He taught her to listen to the wind as it curved around tree 
+                        trunks, to the hidden voices in the river and morning dew. When she asked questions, 
+                        he answered with a look, a gesture, the way his fingers danced over the moss like 
+                        reading a second language written in roots. She called him <a href="Rowan.html" class="altStory">Rowan</a>, after the trees 
+                        that marked the forest’s edge. He never confirmed it, but he smiled when she used 
+                        the name.
+                        <br>
+                        When the leaves began to yellow, he vanished. But the next summer, he returned. And 
+                        again the one after. Each year, Elara would find the path more easily, as though 
+                        the forest remembered her. And each summer, Rowan stood waiting in the clearing, 
+                        greeting her with a smile. For six summers, they met beneath the willow’s veil. But 
+                        then, the seventh summer came, and everything changed.
+                        <br>
+                        First, the birds stopped singing. Then the deer vanished. A stillness fell over the 
+                        village like the hush before a storm. Then came the fever. It moved fast—too fast. 
+                        One child sickened, then three more by dawn. Whole families burned with fever, 
+                        curling beside cold hearths, slipping into silence. Elara’s sister, Mira, was the 
+                        first to fall in her home. Her father next. Then her mother coughing blood by the 
+                        fire, too weak to speak.
+                        <br>
+                        The village panicked. Some cursed the river. Others wept at forgotten shrines. But 
+                        the oldest blamed the forest. The balance had been broken, they said. They had 
+                        angered the spirits. Elara knew one of them. Rowan. She ran to the grove, barefoot 
+                        and breathless, lungs burning with every step. Her cries echoed through the trees, 
+                        calling his name. He was waiting for her. But this time, he did not smile.
+                        <br>
+                        His eyes—those gentle eyes—were heavy with sorrow. He reached forward, brushed dirt 
+                        from her cheek and held her fingers in his. “Rowan,” she gasped. “Please. My 
+                        family—everyone—they’re dying.” He only looked at her, and in his gaze, she could 
+                        see it: he already knew. A cough tore through her, sudden and sharp, doubling her 
+                        over. Rowan caught her before she fell. Blood spattered her lips. Her vision swam. 
+                        The fever had come for her too. 
+                        <br>
+                        He knelt beside her, gently lowering her to the ground. His touch was cool, 
+                        like springwater, but it could not slow the heat building beneath her skin. 
+                        Tears gathered in her lashes. “You can fix this, can’t you? You’re part of the 
+                        forest.” Still, he did not answer. He didn’t explain. He didn’t need to. Her body 
+                        trembled in his arms.
+                        <br>
+                        “I can draw it out,” he said softly. “But only once.” She understood. Speaking had 
+                        already broken part of what bound him. What he was about to do would unmake the rest.
+                        “No,” she croaked. “No, you don’t have to—” He smiled. “I do.”
+                        <br>
+                        He rose and turned toward the willow. The air thickened. Light flickered at the 
+                        edges of the clearing. In a low voice, almost a whisper, he said a single sentence. 
+                        It was in a language she didn’t understand, but she knew enough of what it meant. 
+                        The wind howled and branches bent in reverence. A golden light erupted from the roots 
+                        and swallowed the grove whole. Elara felt the fever leave her in a great rush, like 
+                        smoke drawn out from the fire. Her lungs filled with clean air. Her vision cleared.
+                        <br>
+                        But Rowan—Rowan was already unraveling. Light split through him like cracks in porcelain, 
+                        his body dissolving into the air with every heartbeat. The forest was calling him back, 
+                        unmaking him with quiet finality. He looked down at her, his eyes full of all the words 
+                        he never had the time to say. And in a voice so faint it could’ve been the wind, he whispered,
+                        “At least now… I can finally say how much I loved our time together.”
+                        <br>
+                        The next morning, the sickness was gone. Mira opened her eyes. Elara’s mother could 
+                        finally breathe. The water ran clean, the air fresh. No one could explain it. Elara 
+                        never spoke of Rowan again. Some things were not meant to be told. But every summer, 
+                        she returned to the willow grove. She brought flowers. Sat in silence. Remembered. 
+                        He had broken his vow not for glory or gratitude—but to save what she loved. He had 
+                        chosen her over eternity. And in that fragile, fleeting love, the forest spoke at last.
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+        <p>
+            Not knowing what else to do, you pick up the book—the one that had practically called to you 
+            and start walking. The forest around you deepens with every step, the trees growing taller 
+            and the shadows thicker, as if the very path is pulling you further into the world of the story.
+            The silence is broken by the soft crunch of your boots on mossy ground. Then, up ahead, you 
+            spot a figure cloaked in green and grey, standing still among the trees. His hood obscures his 
+            face, and when you step closer, he simply stares at you—silent, unreadable.
+        </p>
+
+        <div>
+            <h1>Interact With Rowan</h1>
+            <form id="chat-rowan">
+                <label for="mytext">Say something...</label>
+                <input type="text" id="mytext" style="width: 50%;" required>
+                <button type="submit" class= "begin-btn">Submit</button>
+            </form>
+            <div>
+                <p>Response:</p>
+                <textarea id="response" rows="10" style="width: 50%;" readonly></textarea>
+            </div>
+        </div>
+        <script>
+            const form = document.getElementById('chat-rowan');
+            const mytextInput = document.getElementById('mytext');
+            const responseTextarea = document.getElementById('response');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const mytext = mytextInput.value.trim().toLowerCase();
+
+                if (mytext.includes("where") && mytext.includes("am")) {
+                    responseTextarea.value = "He turns to you and gestures to the trees. Looking at you with a hint of amusement in his eyes.";
+                } else if (mytext.includes("your name") || mytext.includes("who are you")) {
+                    responseTextarea.value = "He subtly shakes his head, indicating he doesn’t have a name.";
+                } else if (mytext.includes("what is") || mytext.includes("forest") || mytext.include("place")) {
+                    responseTextarea.value = "He glances at the surrounding trees and gives a slow nod, as if confirming it is a forest.";
+                } else {
+                    responseTextarea.value = "He shakes his head in response, not giving you an answer.";
+                }
+            });
+        </script>
+        <p>
+            Before you can press further, a sudden rustle breaks the quiet. You turn just as a young 
+            woman steps cautiously from behind a tree. Her eyes scan the grove, landing first on the 
+            cloaked figure, then on you. She looks thin. Worn. Her eyes are shadowed with worry.
+            “I… I had to come,” she says softly. “I couldn’t keep it from you any longer.”
+            The forest stills around you. Even the birds seem to listen.
+            “There’s something wrong in the village,” she continues, voice trembling. “People are falling 
+            ill. It started with a cough, then fever, and now… they’re not waking up.”
+            She wrings her hands. “I’m not sick. Not yet. But I don’t know how long that will last. 
+            I had to tell you, Rowan.”
+            <br>
+            <br>
+            The cloaked figure—Rowan—remains silent, though the air seems to tighten 
+            around him. You’re about to speak when realization washes over you like a wave.
+            <br>
+            <br>
+            Elara.
+            <br>
+            <br>
+            The name doesn’t come from memory, but from the whisper of the story itself. You’re inside 
+            the novel—and she’s the protagonist. A sudden pressure blooms in your chest. 
+            Make a good impression. This matters.
+            Rowan remains motionless, the folds of his cloak shifting slightly in the breeze. 
+            His face is shadowed, unreadable—still lost in thought, as if weighing something only he can see. 
+            The forest air feels dense with his silence. So you turn to Elara.
+            <br>
+            <br>
+            “I know this might sound strange,” you say gently, “but maybe… we can pass the time together. 
+            Play a game?” She blinks, surprised. But something softens in her expression—a flicker of relief. 
+            “A game?” she echoes. Then, after a beat, a small smile forms. “Alright. What are my choices?”
+            You offer her three.
+        </p>
+        <h3>Choose a Game to Teach Elara</h3>
+
+        <div class="button-container">
+            <a href="tic-tac-toe.html" class= "begin-btn">Tic Tac Toe</a>
+            <a href="drawing.html" class="begin-btn">Drawing</a>
+            <a href="number-guess.html" class="begin-btn">Number Guessing</a>
+        </div>
+        <p>
+            The sun begins to dip behind the trees, casting long shadows and bathing the grove 
+            in a golden hush. Elara rises, brushing leaves from her skirt.
+            “I should head back,” she says quietly. Then, with a glance toward you, her voice turns 
+            heavier. “They’ll need help—there aren’t enough hands left. And I can’t shake the feeling 
+            that… whatever’s causing this, it’s only just begun.”
+            She hesitates.
+            <br>
+            <br>
+            “You can stay here, if you’d like. It’s safer in the woods. But—” her eyes meet yours, 
+            earnest and unsure “—if you’re willing, I’d feel better not going alone.”
+            She doesn’t ask outright, but the question lingers in the air.
+            <br>
+            <br>
+            Just then, Rowan shifts. He doesn’t speak—he never does—but he steps closer, the silver 
+            of his cloak catching the last light of day. His eyes meet Elara’s for a long, 
+            unreadable moment… and then he gives a subtle nod.
+            Not permission. Not warning.
+            Support.
+            Then he turns, retreating a few steps into the trees, as if to give you space to decide.
+            Elara’s eyes return to you.
+            <br>
+            <br>
+            Will you stay in the forest, or follow her back to the village?
+        </p>
+        <div class="stay-leave">
+            <a href="stay-forest.html" class="begin-btn">Stay</a> &nbsp
+            <a href="leave-forest.html" class="begin-btn">Follow Elara</a>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Word Game (R)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Restart</a></li>
+                    <li><a href="makerStmt.html">Maker's Statement</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="wordGame">
+        <div class="container2">
+            <h2>Word Scramble</h2>
+            <div class="content2">
+                <p class="word">eieverr</p>
+            </div>
+            <input type="text" placeholder="Enter a valid word">
+            <button class="word-btn" id="check">Check word</button>
+            <button class="word-btn" id="hint">Hint</button>
+        </div>
+    </section>
+    <script>
+        window.onload = function() {
+            alert("I'll help you out here...but I can't just give you the answer :)");
+        };
+
+        const checkBtn = document.querySelector("#check");
+        const inputField = document.querySelector("input");
+        const correctWord = "reverie";
+        const hintBtn = document.querySelector("#hint");
+
+
+        const checkWord = () => {
+            let userWord = inputField.value.toLowerCase();
+            if (!userWord) return alert("You need to enter a word.");
+
+            if (userWord !== correctWord){
+                alert(`${userWord} is not correct`)
+            } else {
+                alert(`${userWord.toUpperCase()} is correct! You might want to remember this word...`);
+                window.location.href = "rSickness.html";
+            }
+        };
+        checkBtn.addEventListener("click", checkWord);
+
+        hintBtn.addEventListener("click", () => {
+            alert("A wandering of the mind, where dreams dance while you're still awake.");
+        });
+
+    </script>
+</body>
+</html>
